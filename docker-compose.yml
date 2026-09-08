@@ -1,0 +1,26 @@
+services:
+  nginx:
+    build:
+      context: ./nginx/
+    networks:
+      - monitoring_service
+    ports:
+      - 8080:80
+    volumes:
+      - ./logs:/var/log/nginx
+
+  app-a:
+    build:
+      context: ./app-a/ 
+    networks:
+      - monitoring_service
+
+  app-b:
+    build:
+      context: ./app-b/
+    networks:
+     - monitoring_service
+
+networks:
+  monitoring_service:
+    driver: bridge
