@@ -5,7 +5,6 @@ set -euo pipefail
 LOGFILE="/Users/maslamah/monitoring-stack/HealthCheckLogs"
 timestamp=$(date)
 
-echo " $timestamp - App check " >> "$LOGFILE"
 # if curl returns 0 the first command will run
 if curl -sf http://localhost:8080/app-a/ > /dev/null; then
     echo " $timestamp - App A is working " >> "$LOGFILE"
