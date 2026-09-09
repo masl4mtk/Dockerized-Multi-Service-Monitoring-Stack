@@ -17,4 +17,4 @@ if curl -sf http://localhost:8080/app-b/ > /dev/null; then
     echo " $timestamp - App B is working " >> "$LOGFILE"
 else   
     echo " $timestamp - App B is DOWN " >> "$LOGFILE"
-    
+fi
