@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-LOGFILE="/Users/maslamah/monitoring-stack/HealthCheckLogs"
+LOGFILE=("$(dirname "{$BASH_SOURCE[0]}")/../HealthCheckLogs")
 timestamp=$(date)
 
 # if curl returns 0 the first command will run
