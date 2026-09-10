@@ -9,20 +9,6 @@ The Nginx application is built through a Docker image which uses `nginx:latest` 
 
 Nginx is used as a reverse proxy to act as an entry point for both applications. The docker-compose file spins up the Docker containers and creates the custom-built network, which only exposes the Nginx container to the host. It allows network traffic to be directed to the host through port 8080 and links it to Nginx through port 80, which is the port the `nginx.conf` file configures Nginx to listen on. Both Python applications listen on port 8000 but are not exposed to the host. Only Nginx is reachable from outside the network, keeping the backend apps isolated.
 
-## Project Structure
-
-├── docker-compose.yml
-├── nginx/
-│ ├── Dockerfile
-│ └── nginx.conf
-├── app-a/
-├── app-b/
-├── scripts/
-│ ├── deploy.sh
-│ └── healthcheck.sh
-└── logs/
-
-
 ## How to run it
 
 The whole stack can be run by simply running the Bash script `deploy.sh`, which calls the docker-compose file to build and spin up all the containers. `deploy.sh` polls each service until it's ready rather than exiting immediately after `docker-compose up`, and it prints a message once both App A and App B are confirmed working.
