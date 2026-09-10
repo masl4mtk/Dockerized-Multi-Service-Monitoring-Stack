@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-cd /Users/maslamah/monitoring-stack
+cd "$(dirname "${BASH_SOURCE[0]}")/.."
 docker-compose up --build -d
 
 # Until curl returns 0 the waiting message will be shown
